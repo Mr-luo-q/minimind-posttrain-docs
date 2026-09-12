@@ -1,5 +1,10 @@
 # Qwen3-4B 训练日志
 
+<!-- meta -->
+> **实验日期**：2026-09-03（SFT）/ 09-05（GRPO）　｜　**文档日期**：2026-09-12
+>
+> <sub>日期依据：产物时间戳 09-03（trainer jsonl）与 09-05（GRPO 正式跑 + 边界扫描）。实验日期指实验实际执行时间；文档日期指本文档成稿/更新时间。</sub>
+
 > 本文档由 `_tools/make_4b_training_log.py` 从原始日志自动生成，图表与数字均可复现。
 > 数据源：`results/qwen_sft/trainer_e1_qwen3-4b_lora.jsonl`、`results/qwen_grpo/grpo_formal.log`、
 > `results/qwen_grpo/grpo_formal_vram.csv`。

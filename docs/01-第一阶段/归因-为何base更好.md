@@ -1,5 +1,10 @@
 # 为什么原模型（base）效果反而更好 —— SFT / GRPO 归因分析
 
+<!-- meta -->
+> **实验日期**：2026-09-11（评测跑批）　｜　**文档日期**：2026-09-11
+>
+> <sub>日期依据：基于 09-11 的最终评测结果逐题统计而成。实验日期指实验实际执行时间；文档日期指本文档成稿/更新时间。</sub>
+
 > 数据来源：`experiments/results/bench/`（IFEval-lite 50 题 / 53 约束 + GSM8K test 前 100 题，贪心解码）
 > 复现：`python gen_table.py --dir raw`、`python analyze_constraints.py --dir raw`
 > 本文所有题号、预测值、失败集合均由 `raw/*.jsonl` 逐题明细统计得出，非估计。
