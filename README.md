@@ -46,6 +46,28 @@ GRPO 基本追平底座但也没有提升（KL ≈ 0.02，几乎没有离开底�
 > ⚠️ IFEval-lite 是**自实现轻量版**（中文 50 题、规则自动判分），
 > 分数仅用于**模型间横向对比**，不代表官方 IFEval 榜单成绩。
 
+## 训练曲线
+
+**GRPO 正式训练总览**（Qwen3-4B LoRA + InternLM2-1.8B-Reward，250 步 / 91.3 分钟 / 峰值 22.7 GB）
+
+![GRPO 训练总览](assets/log4b_grpo_overview.png)
+
+**训练信号诊断**：奖励方差全程 >0、策略熵未持续下降，但生成长度**全程贴在上限**（100% 被截断）
+
+![GRPO 训练信号诊断](assets/log4b_grpo_detail.png)
+
+**显存与利用率**：绿色阴影是真实训练窗口；28.4 GB 的尖峰落在训练结束**之后**（跑批收尾开销），
+训练期峰值 22.7 GB
+
+![显存曲线](assets/log4b_grpo_vram.png)
+
+**SFT 冷启动**：1 万条数据上 loss 压到 0.7945，属过拟合式拟合
+
+![SFT loss](assets/log4b_sft_loss.png)
+
+> 更多图表见 [`训练日志-Qwen3-4B.md`](docs/01-第一阶段/训练日志-Qwen3-4B.md)
+> 与 [`报告-MiniMind后训练.md`](docs/01-第一阶段/报告-MiniMind后训练.md)。
+
 ## 过程中修正的两个判分缺陷
 
 这两处都不是模型能力问题，而是自研评测器的判分错误（修完后底座 IFEval 从 84.9% → 98.1%）：
